@@ -255,13 +255,14 @@ function openJoinModal(serviceId, serviceName) {
 
 function renderServiceDetails(serviceId) {
   const fields = SERVICE_DETAIL_FIELDS[serviceId] || [];
+  const selectPrompt = field => field.id === "bankName" ? "Select a bank" : "Select a service";
   $("serviceDetails").innerHTML = fields.length
     ? `<div class="service-details-heading">${escapeHtml($("selectedServiceName").textContent)} details</div>`
       + fields.map(field => `
         <label for="${field.id}">${field.label}</label>
         ${field.type === "select"
           ? `<select id="${field.id}" name="${field.id}" required>
-              <option value="" disabled selected>Select a bank</option>
+              <option value="" disabled selected>${selectPrompt(field)}</option>
               ${field.options.map(option => `<option value="${option}">${option}</option>`).join("")}
             </select>`
           : `<input id="${field.id}" name="${field.id}" type="${field.type}"
