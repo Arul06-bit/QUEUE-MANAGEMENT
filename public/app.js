@@ -38,6 +38,25 @@ const SERVICE_DETAIL_FIELDS = {
         "Kotak Mahindra Bank"
       ]
     },
+    {
+      id: "bankServiceCategory",
+      label: "Banking service category",
+      type: "select",
+      options: [
+        "Account opening",
+        "Cash deposit",
+        "Cash withdrawal",
+        "Cheque services",
+        "Money transfer",
+        "Loan enquiry",
+        "Credit or debit card",
+        "Passbook update",
+        "ATM services",
+        "Fixed deposit",
+        "Online banking",
+        "Customer support"
+      ]
+    },
     { id: "accountNumber", label: "Account number", type: "text", placeholder: "Enter your account number" },
     { id: "bankEnquiryReason", label: "Reason for bank enquiry", type: "text", placeholder: "Enter the reason for your enquiry" }
   ],
