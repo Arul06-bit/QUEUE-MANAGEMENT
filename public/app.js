@@ -61,40 +61,49 @@ const SERVICE_DETAIL_FIELDS = {
     { id: "bankEnquiryReason", label: "Reason for bank enquiry", type: "text", placeholder: "Enter the reason for your enquiry" }
   ],
   "college-office": [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Admissions", "Certificates", "Fees and payments", "Examinations", "Student records", "General enquiry"] },
     { id: "collegeIdCard", label: "College ID card", type: "text", placeholder: "Enter your college ID card number" },
     { id: "collegeAttachment", label: "Attach file", type: "file", accept: ".pdf,.jpg,.jpeg,.png" },
     { id: "rollNumber", label: "Roll number", type: "text", placeholder: "Enter your roll number" },
     { id: "officeVisitReason", label: "Reason for office visit", type: "text", placeholder: "Enter the reason for your visit" }
   ],
   hospital: [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Outpatient consultation", "Emergency", "Laboratory", "Radiology", "Pharmacy", "Billing and insurance"] },
     { id: "patientId", label: "Patient ID", type: "text", placeholder: "Enter the patient ID" },
     { id: "appointmentInfo", label: "Appointment information", type: "text", placeholder: "Enter appointment date or reference" },
     { id: "attachment", label: "Attach file", type: "file", accept: ".pdf,.jpg,.jpeg,.png" }
   ],
   pharmacy: [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Prescription medicines", "Over-the-counter medicines", "Prescription refill", "Health products", "Medicine availability", "Billing"] },
     { id: "pharmacyAttachment", label: "Prescription", type: "file", accept: ".pdf,.jpg,.jpeg,.png" }
   ],
   "government-office": [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Certificates", "Identity documents", "Licences and permits", "Welfare schemes", "Tax services", "General enquiry"] },
     { id: "applicationType", label: "Application type", type: "text", placeholder: "Enter the application or service type" },
     { id: "applicationNumber", label: "Application number", type: "text", placeholder: "Enter the application number" }
   ],
   "railway-counter": [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Ticket booking", "Ticket cancellation", "Reservation enquiry", "Platform ticket", "Season ticket", "Parcel services"] },
     { id: "journeyDate", label: "Journey date", type: "date" },
     { id: "passengerCount", label: "Number of passengers", type: "number", placeholder: "Enter passenger count" }
   ],
   "ration-store": [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Monthly ration collection", "Ration card update", "New ration card", "Family member update", "Grievance", "General enquiry"] },
     { id: "rationCardNumber", label: "Ration card number", type: "text", placeholder: "Enter your ration card number" }
   ],
   restaurant: [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Table booking", "Takeaway order", "Dine-in order", "Food delivery", "Billing", "General enquiry"] },
     { id: "restaurantName", label: "Restaurant name", type: "text", placeholder: "Enter the restaurant name" },
     { id: "reservationDate", label: "Reservation date", type: "date" },
     { id: "guestCount", label: "Number of guests", type: "number", placeholder: "Enter guest count" }
   ],
   salon: [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Haircut", "Hair styling", "Facial and skincare", "Manicure and pedicure", "Makeup", "General consultation"] },
     { id: "salonService", label: "Service required", type: "text", placeholder: "Enter the service you need" },
     { id: "preferredDate", label: "Preferred date", type: "date" }
   ],
   "service-center": [
+    { id: "queueCategory", label: "Queue category", type: "select", options: ["Screen repair", "Battery replacement", "Software support", "Hardware repair", "Accessories", "Warranty service"] },
     { id: "mobileModel", label: "Mobile model", type: "text", placeholder: "Enter your mobile model" },
     { id: "serviceDate", label: "Date of service", type: "date" }
   ]
