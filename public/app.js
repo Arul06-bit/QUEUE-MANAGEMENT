@@ -62,8 +62,7 @@ const SERVICE_DETAIL_FIELDS = {
   ],
   "college-office": [
     { id: "queueCategory", label: "Queue category", type: "select", options: ["Admissions", "Certificates", "Fees and payments", "Examinations", "Student records", "General enquiry"] },
-    { id: "collegeIdCard", label: "College ID card", type: "text", placeholder: "Enter your college ID card number" },
-    { id: "collegeAttachment", label: "Attach file", type: "file", accept: ".pdf,.jpg,.jpeg,.png" },
+    { id: "collegeAttachment", label: "College ID card", type: "file", accept: ".pdf,.jpg,.jpeg,.png" },
     { id: "rollNumber", label: "Roll number", type: "text", placeholder: "Enter your roll number" },
     { id: "officeVisitReason", label: "Reason for office visit", type: "text", placeholder: "Enter the reason for your visit" }
   ],
