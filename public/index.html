@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QueueLess digital queue management system">
+  <title>QueueLess | Smart Queue Management</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="pre-entry">
+  <nav class="navbar">
+    <div class="brand">🎟️ QueueLess</div>
+  </nav>
+
+  <main class="container">
+    <section id="customerPanel">
+      <div class="hero">
+        <div>
+          <small>SMART WAITING-TIME MANAGEMENT</small>
+          <h1>Don't stand in line.<br>Join digitally.</h1>
+          <p>Choose a service, get a virtual token, track your position and arrive when your turn is near.</p>
+        </div>
+        <div class="hero-icon">⏱️</div>
+      </div>
+
+      <div class="tools panel">
+        <label class="location-filter" for="locationSelect">
+          <span>Choose locality</span>
+          <select id="locationSelect">
+            <option value="All">All localities</option>
+          </select>
+        </label>
+        <label class="location-filter" for="serviceTypeSelect">
+          <span>Service type</span>
+          <select id="serviceTypeSelect">
+            <option value="All">All service types</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <small>AVAILABLE SERVICES</small>
+          <h2>Choose where you need to go</h2>
+        </div>
+        <span id="serviceCount"></span>
+      </div>
+
+      <div id="serviceGrid" class="service-grid"></div>
+      <div id="ticketPanel" class="ticket panel hidden"></div>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <div id="adminLogin" class="login-card panel">
+        <div class="login-icon">🔐</div>
+        <h1>Admin Login</h1>
+        <p>Sign in to manage queues and services.</p>
+        <form id="loginForm">
+          <input id="adminUsername" type="text" placeholder="Username" value="admin" required>
+          <input id="adminPassword" type="password" placeholder="Password" required>
+          <button class="primary" type="submit">Login to Dashboard</button>
+        </form>
+      </div>
+
+      <div id="adminDashboard" class="hidden">
+        <div class="admin-head panel">
+          <div>
+            <small>ADMIN DASHBOARD</small>
+            <h1>Queue Management Center</h1>
+            <p>Monitor every service and call the next customer.</p>
+          </div>
+          <div class="admin-actions">
+            <button class="secondary" id="refreshAdminBtn">↻ Refresh</button>
+            <button class="danger" id="logoutBtn">Logout</button>
+          </div>
+        </div>
+
+        <div id="stats" class="stats"></div>
+        <div id="adminGrid" class="admin-grid"></div>
+
+        <div class="add panel">
+          <h2>➕ Add New Queue Place</h2>
+          <form id="addServiceForm" class="add-form">
+            <input id="serviceName" placeholder="Service name" required>
+            <input id="serviceCategory" placeholder="Category" required>
+            <select id="serviceLocation" required>
+              <option value="" disabled selected>Choose location</option>
+            </select>
+            <input id="serviceIcon" placeholder="Emoji" value="📍">
+            <input id="serviceAvg" type="number" min="1" value="10" placeholder="Avg. minutes">
+            <button class="primary" type="submit">Add Service</button>
+          </form>
+        </div>
+
+        <div class="add panel">
+          <h2>🕘 Recent Activity</h2>
+          <div id="recentActivity"></div>
+        </div>
+
+        <div class="add panel">
+          <h2>🗺️ Tamil Nadu Service Database</h2>
+          <div id="tamilNaduDirectory"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="roleModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="roleModalTitle">
+    <div class="role-modal panel">
+      <small>WELCOME TO QUEUELESS</small>
+      <h2 id="roleModalTitle">Smart queueing starts here</h2>
+      <p>Skip the waiting line, join your service digitally, and manage every queue in real time.</p>
+      <div class="entry-tags">
+        <span>Fast check-in</span>
+        <span>Live updates</span>
+      </div>
+      <div class="role-actions">
+        <button id="chooseCustomerBtn" class="primary" type="button">Customer</button>
+        <button id="chooseAdminBtn" class="secondary" type="button">Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="detailsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+    <form id="customerDetailsForm" class="details-modal panel">
+      <button id="closeDetailsBtn" class="modal-close" type="button" aria-label="Close">&times;</button>
+      <small>JOIN SERVICE</small>
+      <h2 id="detailsModalTitle">Your details</h2>
+      <p id="selectedServiceName" class="modal-service"></p>
+      <label for="nameInput">Your name</label>
+      <input id="nameInput" type="text" maxlength="60" placeholder="Enter your name" required>
+      <label for="phoneInput">Phone number</label>
+      <input id="phoneInput" type="tel" maxlength="15" inputmode="tel" placeholder="Enter your phone number" required>
+      <label for="dobInput">Date of birth</label>
+      <input id="dobInput" type="date" required>
+      <label for="idProofInput">ID proof</label>
+      <input id="idProofInput" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+      <div id="serviceDetails"></div>
+      <div class="modal-actions">
+        <button id="cancelDetailsBtn" class="secondary" type="button">Cancel</button>
+        <button class="primary" type="submit">Join Queue</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

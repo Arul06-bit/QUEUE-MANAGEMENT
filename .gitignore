@@ -1,0 +1,4 @@
+node_modules/
+queueless.db
+queueless.db-shm
+queueless.db-wal
