@@ -21,7 +21,7 @@ const SERVICE_DETAIL_FIELDS = {
   bank: [
     {
       id: "bankName",
-      label: "Choose bank",
+      label: "Bank name",
       type: "select",
       options: [
         "State Bank of India",
