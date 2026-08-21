@@ -91,6 +91,17 @@ function setupDatabase() {
     db.exec("ALTER TABLE tickets ADD COLUMN details TEXT NOT NULL DEFAULT '{}'");
   }
 
+  const removedServiceIds = ["salon", "railway-counter"];
+  const removeServices = db.transaction(() => {
+    for (const serviceId of removedServiceIds) {
+      db.prepare("DELETE FROM tickets WHERE service_id = ?").run(serviceId);
+      db.prepare("DELETE FROM service_history WHERE service_id = ?").run(serviceId);
+      db.prepare("DELETE FROM service_localities WHERE service_id = ?").run(serviceId);
+      db.prepare("DELETE FROM services WHERE id = ?").run(serviceId);
+    }
+  });
+  removeServices();
+
   const serviceCount = db.prepare("SELECT COUNT(*) AS count FROM services").get().count;
   if (serviceCount === 0) {
     const seedServices = [
@@ -99,9 +110,7 @@ function setupDatabase() {
       ["pharmacy","Pharmacy","Healthcare","💊","City Hospital",5],
       ["bank","Bank","Banking","🏦","Town Center",10],
       ["government-office","Government Office","Public Services","🏛️","Taluk Office",15],
-      ["railway-counter","Railway Ticket Counter","Transport","🚆","Central Station",7],
       ["college-office","College Office","Education","🎓","College Main Block",6],
-      ["salon","Salon","Personal Care","💇","Town Center",20],
       ["restaurant","Restaurant","Food","🍽️","Food Street",12],
       ["service-center","Mobile / Service Center","Repair Services","📱","Market Road",18]
     ];

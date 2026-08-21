@@ -81,11 +81,6 @@ const SERVICE_DETAIL_FIELDS = {
     { id: "applicationType", label: "Application type", type: "text", placeholder: "Enter the application or service type" },
     { id: "applicationNumber", label: "Application number", type: "text", placeholder: "Enter the application number" }
   ],
-  "railway-counter": [
-    { id: "queueCategory", label: "Queue category", type: "select", options: ["Ticket booking", "Ticket cancellation", "Reservation enquiry", "Platform ticket", "Season ticket", "Parcel services"] },
-    { id: "journeyDate", label: "Journey date", type: "date" },
-    { id: "passengerCount", label: "Number of passengers", type: "number", placeholder: "Enter passenger count" }
-  ],
   "ration-store": [
     { id: "queueCategory", label: "Queue category", type: "select", options: ["Monthly ration collection", "Ration card update", "New ration card", "Family member update", "Grievance", "General enquiry"] },
     { id: "rationCardNumber", label: "Ration card number", type: "text", placeholder: "Enter your ration card number" }
@@ -95,11 +90,6 @@ const SERVICE_DETAIL_FIELDS = {
     { id: "restaurantName", label: "Restaurant name", type: "text", placeholder: "Enter the restaurant name" },
     { id: "reservationDate", label: "Reservation date", type: "date" },
     { id: "guestCount", label: "Number of guests", type: "number", placeholder: "Enter guest count" }
-  ],
-  salon: [
-    { id: "queueCategory", label: "Queue category", type: "select", options: ["Haircut", "Hair styling", "Facial and skincare", "Manicure and pedicure", "Makeup", "General consultation"] },
-    { id: "salonService", label: "Service required", type: "text", placeholder: "Enter the service you need" },
-    { id: "preferredDate", label: "Preferred date", type: "date" }
   ],
   "service-center": [
     { id: "queueCategory", label: "Queue category", type: "select", options: ["Screen repair", "Battery replacement", "Software support", "Hardware repair", "Accessories", "Warranty service"] },
