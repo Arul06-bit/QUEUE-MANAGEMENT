@@ -19,6 +19,25 @@ let pendingServiceId = "";
 
 const SERVICE_DETAIL_FIELDS = {
   bank: [
+    {
+      id: "bankName",
+      label: "Choose bank",
+      type: "select",
+      options: [
+        "State Bank of India",
+        "HDFC Bank",
+        "ICICI Bank",
+        "Axis Bank",
+        "Canara Bank",
+        "Indian Bank",
+        "Bank of Baroda",
+        "Punjab National Bank",
+        "Union Bank of India",
+        "Indian Overseas Bank",
+        "Tamilnad Mercantile Bank",
+        "Kotak Mahindra Bank"
+      ]
+    },
     { id: "accountNumber", label: "Account number", type: "text", placeholder: "Enter your account number" },
     { id: "bankEnquiryReason", label: "Reason for bank enquiry", type: "text", placeholder: "Enter the reason for your enquiry" }
   ],
@@ -212,9 +231,14 @@ function renderServiceDetails(serviceId) {
     ? `<div class="service-details-heading">${escapeHtml($("selectedServiceName").textContent)} details</div>`
       + fields.map(field => `
         <label for="${field.id}">${field.label}</label>
-        <input id="${field.id}" name="${field.id}" type="${field.type}"
-          ${field.accept ? `accept="${field.accept}"` : ""}
-          ${field.placeholder ? `placeholder="${field.placeholder}"` : ""} required>
+        ${field.type === "select"
+          ? `<select id="${field.id}" name="${field.id}" required>
+              <option value="" disabled selected>Select a bank</option>
+              ${field.options.map(option => `<option value="${option}">${option}</option>`).join("")}
+            </select>`
+          : `<input id="${field.id}" name="${field.id}" type="${field.type}"
+              ${field.accept ? `accept="${field.accept}"` : ""}
+              ${field.placeholder ? `placeholder="${field.placeholder}"` : ""} required>`}
       `).join("")
     : "";
 }
